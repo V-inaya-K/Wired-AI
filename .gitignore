@@ -1,0 +1,52 @@
+# ==========================
+# Environment variables
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ==========================
+# IDE
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Logs
+# ==========================
+*.log
+
+# ==========================
+# Data
+# ==========================
+data/uploads/
+data/chroma/
+data/output/
+
+# Keep folders if empty
+!data/uploads/.gitkeep
+!data/chroma/.gitkeep
+!data/output/.gitkeep
+
+# ==========================
+# OS
+# ==========================
+.DS_Store
+Thumbs.db

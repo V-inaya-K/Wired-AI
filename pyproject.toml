@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-voice-research-assistant"
+version = "0.1.0"
+description = "Agentic voice research assistant"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "python-dotenv",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "langgraph",
+  "langchain",
+  "langchain-core",
+  "langchain-groq",
+  "llama-index",
+  "llama-index-vector-stores-chroma",
+  "llama-index-embeddings-huggingface",
+  "chromadb",
+  "faster-whisper",
+  "groq",
+  "tavily-python",
+  "pypdf",
+  "requests",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
