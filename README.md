@@ -1,40 +1,86 @@
-# Agentic Voice Research Assistant
+# ⚡ Wired AI
 
-Production-ready Python and React project for an agentic voice research assistant.
+- Wired AI is an Agentic AI-powered Voice Research Assistant that enables users to interact with documents using voice or text.
+- The system combines LangGraph, Retrieval-Augmented Generation (RAG), speech recognition, web search, and text-to-speech to provide intelligent, context-aware responses.
 
-## Stack
+## ✨ Demo Video
 
-- Python 3.11+
-- FastAPI
-- LangGraph
-- LlamaIndex
-- ChromaDB
-- Faster-Whisper
-- Piper TTS
-- Groq
-- Tavily
-- React + Vite
+Coming Soon
 
-## Recommended Python Version
+## 🔗 Wired AI Live Link
 
-Use Python 3.11 or 3.12. Several of the AI libraries used here still emit compatibility warnings on Python 3.14.
+- Currently not deployed on the cloud as the application uses local AI models (Whisper, Piper, ChromaDB) for processing.
 
-## Run
+## 🧲 Tech Stack
 
-Backend:
+- Python (FastAPI) for backend APIs.
+- React + Vite for frontend.
+- LangGraph for AI agent workflow.
+- LlamaIndex for document indexing and retrieval.
+- ChromaDB as vector database.
+- HuggingFace Sentence Transformers for embeddings.
+- Groq API (Llama-3.3-70B-Versatile) for LLM inference.
+- Faster-Whisper for speech-to-text.
+- Piper TTS for text-to-speech.
+- SQLite for chat history.
+- HTML, CSS, JavaScript for frontend.
+
+## 🚀 Workflow
+
+1. Upload one or more PDF documents.
+2. Documents are indexed into ChromaDB.
+3. Ask questions using text or voice.
+4. LangGraph decides whether to use:
+   - Local RAG
+   - Web Search
+   - Direct LLM response
+5. The assistant returns the answer along with sources and optional speech output.
+
+## 🌀 Features
+
+- AI-powered research assistant using Groq LLM.
+- Retrieval-Augmented Generation (RAG) using uploaded PDFs.
+- Agentic routing with LangGraph.
+- Voice input using Faster-Whisper.
+- Voice output using Piper TTS.
+- PDF upload and automatic indexing.
+- Web search for recent information.
+- Multi-turn conversation with chat memory.
+- Source-aware answers.
+- Local vector database using ChromaDB.
+- FastAPI backend with React frontend.
+- Clean and responsive UI.
+- Error handling for invalid uploads and API failures.
+
+## 🌊 Setup
+
+1. Clone or download the repository.
+
+2. Install dependencies.
 
 ```bash
-uvicorn backend.main:app --reload --app-dir src
+pip install -r requirements.txt
 ```
 
-If you prefer setting the path explicitly in PowerShell:
+3. Create a `.env` file in the project root and add the required keys.
 
-```powershell
-$env:PYTHONPATH="src"
-uvicorn backend.main:app --reload
+```env
+GROQ_API_KEY=your_groq_api_key
+TAVILY_API_KEY=your_tavily_api_key
+
+HF_EMBED_MODEL=sentence-transformers/all-MiniLM-L6-v2
+
+PIPER_BIN=path_to_piper.exe
+PIPER_VOICE=path_to_voice.onnx
 ```
 
-Frontend:
+4. Start the backend.
+
+```bash
+python -m uvicorn backend.main:app --reload --app-dir src
+```
+
+5. Start the frontend.
 
 ```bash
 cd frontend
@@ -42,11 +88,8 @@ npm install
 npm run dev
 ```
 
-## Environment
+6. Open the application in your browser.
 
-Copy `.env.example` to `.env` and provide:
-
-- `GROQ_API_KEY`
-- `TAVILY_API_KEY`
-- `PIPER_BIN`
-- `PIPER_VOICE`
+```
+http://localhost:5173
+```
